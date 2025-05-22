@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
+// import Svg, { Path } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
@@ -23,16 +23,16 @@ const HostelCard = () => {
     <View style={styles.card}>
       <View style={styles.imageWrapper}>
         <Image
-          source={require('./assets/beds.png')}
+          source={require('./assets/newbed.jpg')}
           style={styles.image}
           resizeMode="cover"
         />
-        <Svg height="58" width={width} viewBox={`0 0 ${width} 3`} style={styles.svg}>
+        {/* <Svg height="58" width={width} viewBox={`0 0 ${width} 3`} style={styles.svg}>
           <Path
             d={`M0,0 C${width * 0.25},60 ${width * 0.75},-40 ${width},60 L${width},100 L0,100 Z`}
             fill="blue"
           />
-        </Svg>
+        </Svg> */}
       </View>
 
       <View style={styles.content}>
@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 8,
-    elevation: 8,
-    height: '95%',
-    width:'90%',
+    height: '100%',
+    width:'100%',
+    marginLeft:0,
   },
   imageWrapper: {
     position: 'relative',
@@ -69,12 +69,13 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 500,
+    height: 600,
+    marginTop:30,
   },
-  svg: {
-    position: 'absolute',
-    bottom: 0,
-  },
+  // svg: {
+  //   position: 'absolute',
+  //   bottom: 10,
+  // },
   content: {
     padding: 16,
     alignItems: 'center',
@@ -82,24 +83,28 @@ const styles = StyleSheet.create({
 
   },
   title: {
-    fontSize: 20,
+    fontSize: 27,
     fontWeight: '600',
     textAlign: 'center',
     color: '#333',
     marginBottom: 8,
+    marginTop:30,
   },
   description: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#666',
     textAlign: 'center',
     marginBottom: 16,
     lineHeight: 30,
+    marginLeft:30,
+    marginRight:20,
   },
   button: {
-    backgroundColor: '#2A72E9',
+    backgroundColor: '#8F87F1',
     paddingVertical: 10,
     paddingHorizontal: 104,
     borderRadius: 24,
+    marginTop:30,
   },
   buttonText: {
     color: '#fff',
