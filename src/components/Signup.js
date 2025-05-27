@@ -9,9 +9,11 @@ import {
   ScrollView,
   Dimensions,
   ImageBackground,
+  // SafeAreaView,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
+
 
 const { width } = Dimensions.get('window');
 
@@ -37,11 +39,13 @@ const SignupScreen = () => {
 
 
   return (
+    // < SafeAreaView style={styles.safeArea}>
     <ImageBackground
       source={require('./assets/backg.png')}
       style={styles.background}
       resizeMode="cover"
     >
+
       <View style={styles.overlay}>
         <Svg height="160" width={width} viewBox={`0 0 ${width} 155`}>
           <Path
@@ -139,12 +143,18 @@ const SignupScreen = () => {
         </ScrollView>
       </View>
     </ImageBackground>
+    // </SafeAreaView>
+
   );
 };
 
 export default SignupScreen;
 
 const styles = StyleSheet.create({
+  // safeArea: { // Style for SafeAreaView
+  //   flex: 1,
+  //   backgroundColor: '#fff',// Set a background color that matches your screen's general background
+  // },
   background: {
     flex: 1,
     marginTop:45,

@@ -245,7 +245,7 @@ export default CreatePasswordScreen;
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    marginTop:50,
+   marginTop:50,
   },
   overlay: {
     flex: 1,

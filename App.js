@@ -69,8 +69,72 @@
 
 
 
+// import React from 'react'; // Import React
+// import { StatusBar } from 'react-native'; // Import StatusBar
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { NavigationContainer } from '@react-navigation/native';
+
+// // Import all your screen components. Ensure these paths are correct.
+// import HostelCard from './src/components/Banner';
+// import SignupScreen from './src/components/Signup';
+// import LoginScreen from './src/components/Login';
+// import CreatePasswordScreen from './src/components/Forgot Password';
+// import HomeScreen from './src/components/Homepage.js';
+// import Hostel1 from './src/components/Hostel1.js';
+// import ProfileScreen from './src/components/Profile.js';
+// import HelpScreen from './src/components/Help.js';
+// import ContactThankYou from './src/components/Feedback.js';
+// import Hostel1Info from './src/components/Hostel1Info.js';
+// import BookingScreen from './src/components/BookingScreen.js';
+// import BookingThankYouScreen from './src/components/BookingThankYouScreen.js';
+// import Hostel2 from './src/components/Hostel2.js';
+// import Hostel2Info from './src/components/Hostel2Info.js';
+// import Hostel3 from './src/components/Hostel3.js';
+// const Stack = createNativeStackNavigator();
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       {/* StatusBar component added here */}
+//       <StatusBar
+//         barStyle="dark-content" // Can be 'dark-content', 'light-content', or 'default'
+//         backgroundColor="#f1eafa" // Set a background color that matches your app's theme
+//       />
+//       <Stack.Navigator initialRouteName="HostelCard">
+//         <Stack.Screen name="HostelCard" component={HostelCard} options={{ headerShown: false }} />
+//         <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="Hostel1" component={Hostel1} options={{ headerShown: false }} />
+//         <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="HelpScreen" component={HelpScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="ContactThankYou" component={ContactThankYou} options={{ headerShown: false }} />
+//         <Stack.Screen name="Hostel1Info" component={Hostel1Info} options={{ headerShown: false }} />
+//         <Stack.Screen name="BookingScreen" component={BookingScreen} options={{ headerShown: false }} />
+//         <Stack.Screen name="BookingThankYouScreen" component={BookingThankYouScreen} options={{headerShown: false}} />
+//         <Stack.Screen name="Hostel2" component={Hostel2} options={{headerShown: false}} />
+//         <Stack.Screen name="Hostel2Info" component={Hostel2Info} options={{headerShown: false}} />
+//         <Stack.Screen name="Hostel3" component={Hostel3} options={{headerShown: false}} />
+
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 import React from 'react'; // Import React
-import { StatusBar } from 'react-native'; // Import StatusBar
+import { StatusBar, SafeAreaView } from 'react-native'; // Import StatusBar and SafeAreaView
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -86,46 +150,45 @@ import HelpScreen from './src/components/Help.js';
 import ContactThankYou from './src/components/Feedback.js';
 import Hostel1Info from './src/components/Hostel1Info.js';
 import BookingScreen from './src/components/BookingScreen.js';
+import BookingThankYouScreen from './src/components/BookingThankYouScreen.js';
+import Hostel2 from './src/components/Hostel2.js';
+import Hostel2Info from './src/components/Hostel2Info.js';
+import Hostel3 from './src/components/Hostel3.js';
+import Hostel3Info from './src/components/Hostel3Info.js';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      {/* StatusBar component added here */}
-      <StatusBar
-        barStyle="dark-content" // Can be 'dark-content', 'light-content', or 'default'
-        backgroundColor="#f1eafa" // Set a background color that matches your app's theme
-      />
-      <Stack.Navigator initialRouteName="HostelCard">
-        <Stack.Screen name="HostelCard" component={HostelCard} options={{ headerShown: false }} />
-        <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Hostel1" component={Hostel1} options={{ headerShown: false }} />
-        <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="HelpScreen" component={HelpScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="ContactThankYou" component={ContactThankYou} options={{ headerShown: false }} />
-        <Stack.Screen name="Hostel1Info" component={Hostel1Info} options={{ headerShown: false }} />
-        <Stack.Screen name="BookingScreen" component={BookingScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#f1eafa' }}> {/* Wrapped NavigationContainer with SafeAreaView */}
+      <NavigationContainer>
+        {/* StatusBar component added here */}
+        <StatusBar
+          barStyle="dark-content" // Can be 'dark-content', 'light-content', or 'default'
+          backgroundColor="#f1eafa" // Set a background color that matches your app's theme
+        />
+        <Stack.Navigator initialRouteName="HostelCard">
+          <Stack.Screen name="HostelCard" component={HostelCard} options={{ headerShown: false }} />
+          <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Hostel1" component={Hostel1} options={{ headerShown: false }} />
+          <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="HelpScreen" component={HelpScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="ContactThankYou" component={ContactThankYou} options={{ headerShown: false }} />
+          <Stack.Screen name="Hostel1Info" component={Hostel1Info} options={{ headerShown: false }} />
+          <Stack.Screen name="BookingScreen" component={BookingScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="BookingThankYouScreen" component={BookingThankYouScreen} options={{headerShown: false}} />
+          <Stack.Screen name="Hostel2" component={Hostel2} options={{headerShown: false}} />
+          <Stack.Screen name="Hostel2Info" component={Hostel2Info} options={{headerShown: false}} />
+          <Stack.Screen name="Hostel3" component={Hostel3} options={{headerShown: false}} />
+          <Stack.Screen name="Hostel3Info" component={Hostel3Info} options={{headerShown: false}} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

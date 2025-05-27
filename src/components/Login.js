@@ -166,6 +166,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  // SafeAreaView,
   ImageBackground,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -178,6 +179,7 @@ const LoginScreen = () => {
 
 
   return (
+    // < SafeAreaView style={styles.safeArea}>
     <ImageBackground
       source={require('./assets/chair.png')} // Adjust path as needed
       style={styles.background}
@@ -222,15 +224,20 @@ const LoginScreen = () => {
 
       <BottomCurve />
     </ImageBackground>
+    // </SafeAreaView>
   );
 };
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  // safeArea: { // Style for SafeAreaView
+  //   flex: 1,
+  //   backgroundColor: '#fff', // Set a background color that matches your screen's general background
+  // },
   background: {
     flex: 1,
-    marginTop:50,
+   marginTop:50,
   },
   container: {
     flex: 1,

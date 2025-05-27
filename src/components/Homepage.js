@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
     {
       id: '3', // Added more dummy data
       title: 'Hostel 3',
-      image: require('./assets/hostel1.jpg'), // Reusing image for demo
+      image: require('./assets/hostel3.jpg'), // Reusing image for demo
       views: '15.0k',
     },
     {
@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
     {
       id: '5', // Added more dummy data
       title: 'Hostel 5',
-      image: require('./assets/hostel1.jpg'), // Reusing image for demo
+      image: require('./assets/abc.jpg'), // Reusing image for demo
       views: '10.1k',
     },
   ];
@@ -86,7 +86,7 @@ const HomeScreen = ({ navigation }) => {
       status: 'Rooms Available',
       tag: '#Coworking | Gym',
       available: true,
-      image: require('./assets/xyz.jpg'),
+      image: require('./assets/abc.jpg'),
       category: 'Co-Living',
     },
   ];
@@ -95,33 +95,91 @@ const HomeScreen = ({ navigation }) => {
     (hostel) => hostel.category === selectedTab
   );
 
+  // const renderPopular = ({ item }) => (
+  //   <View style={styles.popularCard}>
+  //     <TouchableOpacity
+  //       onPress={() => {
+  //         navigation.navigate('Hostel1', {
+  //           hostel: {
+  //             name: item.title,
+  //             image: item.image,
+  //             price: '₹300/day',
+  //             contactName: 'AbcXyz',
+  //             contactNumber: '+91 123-456-7890',
+  //             rating: 4.5,
+  //           },
+  //         });
+  //       } else if (item.id === '2') {
+  //           navigation.navigate('Hostel2', { // Navigate to Hostel2 screen
+  //             hostel: {
+  //               name: item.title,
+  //               image: item.image,
+  //               price: '₹300/day', // Example price for Hostel 2
+  //               contactName: 'AbcXyz',
+  //               contactNumber: '+91 123-456-7890',
+  //               rating: 4.0, // Example rating for Hostel 2
+  //             },
+  //           });
+  //         } else {
+  //           // For other popular hostels, you might navigate to a generic detail screen
+  //           console.log('Pressed:', item.title);
+  //         }
+  //         // --- END MODIFIED ---
+  //       }}
+  //     >
   const renderPopular = ({ item }) => (
     <View style={styles.popularCard}>
       <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Hostel1', {
-            hostel: {
-              name: item.title,
-              image: item.image,
-              price: '₹300/day',
-              contactName: 'AbcXyz',
-              contactNumber: '+91 123-456-7890',
-              rating: 4.5,
-            },
-          });
-        }}
+        onPress={() => { // The entire logic must be inside these curly braces
+          if (item.id === '1') {
+            navigation.navigate('Hostel1', {
+              hostel: {
+                name: item.title,
+                image: item.image,
+                price: '₹300/day',
+                contactName: 'AbcXyz',
+                contactNumber: '+91 123-456-7890',
+                rating: 4.5,
+              },
+            });
+          } else if (item.id === '2') {
+            navigation.navigate('Hostel2', { // Navigate to Hostel2 screen
+              hostel: {
+                name: item.title,
+                image: item.image,
+                price: '₹400/day', // Example price for Hostel 2
+                contactName: 'Kumar',
+                contactNumber: '+91 123-456-7890',
+                rating: 4.0, // Example rating for Hostel 2
+              },
+            });
+          } else if (item.id === '3') { // NEW: Navigate to Hostel3 screen
+            navigation.navigate('Hostel3', {
+              hostel: {
+                name: item.title,
+                image: item.image,
+                price: '₹300/day', // Example price for Hostel 3
+                contactName: 'AbcXyz',
+                contactNumber: '+91 123-456-7890',
+                rating: 3.5, // Example rating for Hostel 3
+              },
+            });
+          } else {
+            // For other popular hostels, you might navigate to a generic detail screen
+            console.log('Pressed:', item.title);
+          }
+        }} // Closing curly brace for the onPress function
       >
         <View style={styles.imageWrapper}>
           <Image source={item.image} style={styles.popularImage} />
         </View>
       </TouchableOpacity>
       <View style={{ marginTop: 8 }}>
-        <Text style={styles.popularText}>{item.title}</Text>
-        <Text style={{ color: 'gray' }}>{item.views}</Text>
+        <Text style={styles.popularText}>{item.title || 'N/A'}</Text>
+        <Text style={{ color: 'gray' }}>{item.views || '0 views'}</Text>
       </View>
     </View>
   );
-
   const renderNearby = ({ item }) => (
     <View style={styles.nearCard}>
       <TouchableOpacity onPress={() => {
@@ -160,10 +218,16 @@ const HomeScreen = ({ navigation }) => {
               <TouchableOpacity onPress={() => navigation.navigate('HelpScreen')}>
                 <Text style={styles.help}>Help?</Text>
               </TouchableOpacity>
-              <Image
+              {/* <Image
                 source={require('./assets/icon.png')}
                 style={styles.userIcon}
-              />
+              /> */}
+              <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
+                <Image
+                  source={require('./assets/icon.png')}
+                  style={styles.userIcon}
+                />
+              </TouchableOpacity>
             </View>
 
             {/* Location Info */}
@@ -198,7 +262,7 @@ const HomeScreen = ({ navigation }) => {
               renderItem={renderPopular}
               keyExtractor={(item) => item.id}
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.popularHostelsListContent} 
+              contentContainerStyle={styles.popularHostelsListContent}
             />
 
             {/* Nearby Hostels */}
@@ -243,7 +307,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    marginTop:50,
+   marginTop:50,
   },
   overlay: {
     flex: 1,
@@ -356,8 +420,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16, // Match main screen padding
   },
   popularCard: {
-    width: 180,
-    marginRight: 10,
+    width: 200,
+    marginRight: 20,
     borderRadius: 12,
     backgroundColor: '#fff',
     padding: 10,
@@ -366,7 +430,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
-    height: 200,
+    height: 250,
   },
   imageWrapper: {
     backgroundColor: '#fff',
@@ -375,12 +439,12 @@ const styles = StyleSheet.create({
   },
   popularImage: {
     width: '100%',
-    height: 120,
-    borderRadius: 10,
+    height: 160,
+    borderRadius: 17,
   },
   popularText: {
-    fontWeight: '500',
-    color: '#333',
+    fontWeight: '700',
+    color: 'bold',
   },
   nearCard: {
     flexDirection: 'row',
@@ -392,10 +456,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
+    height:130,
   },
   nearImage: {
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
     borderRadius: 8,
     marginRight: 10,
   },

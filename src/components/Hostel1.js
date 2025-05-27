@@ -394,6 +394,32 @@ const Hostel1 = () => {
     setDistance(5);
     setShowFilterModal(false);
   };
+  const navigateToPopularHostel = (item) => {
+    if (item.id === '1') {
+      navigation.navigate('Hostel1Info', {
+        hostel: {
+          name: 'Hostel 1',
+          image: require('./assets/hostel1.jpg'),
+          price: '₹300/day',
+          contactName: 'John Doe',
+          contactNumber: '+91 987-654-3210',
+          rating: 4.2,
+        },
+      });
+    } else if (item.id === '2') {
+      navigation.navigate('Hostel2Info', {
+        hostel: {
+          name: 'Hostel 2',
+          image: require('./assets/hostel2.jpg'),
+          price: '₹350/day',
+          contactName: 'Jane Smith',
+          contactNumber: '+91 876-543-2109',
+          rating: 4.5,
+        },
+      });
+    }
+    // Add navigation for other popular hostels as needed
+  };
 
   return (
     <ImageBackground
@@ -595,7 +621,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   // backButton: {
-  //   padding: 8,
+  //   padding: 8,gi
   //   borderRadius: 20,
   //   backgroundColor: 'rgba(0,0,0,0.1)',
   // },

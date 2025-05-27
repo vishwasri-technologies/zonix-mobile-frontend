@@ -5,12 +5,13 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  Dimensions,
+  // Dimensions,
+  // SafeAreaView,
 } from 'react-native';
 // import Svg, { Path } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
 
-const { width } = Dimensions.get('window');
+// const { width } = Dimensions.get('window');
 
 const HostelCard = () => {
   const navigation = useNavigation();
@@ -20,6 +21,7 @@ const HostelCard = () => {
   };
 
   return (
+    // < SafeAreaView style={styles.safeArea}>
     <View style={styles.card}>
       <View style={styles.imageWrapper}>
         <Image
@@ -45,12 +47,16 @@ const HostelCard = () => {
         </TouchableOpacity>
       </View>
     </View>
+    // </SafeAreaView>
   );
 };
 
 export default HostelCard;
 
 const styles = StyleSheet.create({
+  // safeArea: { // New style for SafeAreaView
+  //   flex: 1,
+  // },
   card: {
     margin: 20,
     borderRadius: 1,

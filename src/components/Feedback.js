@@ -15,9 +15,8 @@ export default function ContactThankYouScreen() {
 
         <View style={styles.feedbackBox}>
           <Text style={styles.feedbackText}>
-            We will take your{'\n'}
-            <Text style={styles.boldText}>Feedback Into Consideration</Text>{'\n'}
-            and resolve your Problem ASAP !!
+            <Text style={styles.boldText}> We will take yourFeedback Into Consideration
+            and resolve your Problem ASAP !!</Text>
           </Text>
         </View>
       </View>
@@ -29,6 +28,8 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: 'rgba(164, 244, 248, 0.6)', 
+     marginTop:50,
   },
   overlay: {
     alignItems: 'center',
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   thankText: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '600',
     textAlign: 'center',
   },
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     maxWidth: '90%',
   },
   feedbackText: {
-    fontSize: 15,
+    fontSize: 18,
     textAlign: 'center',
   },
   boldText: {
